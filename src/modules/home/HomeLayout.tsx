@@ -2,21 +2,21 @@ import { motion, useAnimation } from 'framer-motion';
 import { NavBarActions, StyledButton } from '../builder/nav-bar/atoms';
 import { BsGithub } from 'react-icons/bs';
 import { Button } from '@mui/material';
-import FeatureSection from './components/Feature';
+// import FeatureSection from './components/Feature';
 import Image from 'next/image';
 import Link from 'next/link';
-import Person from './components/Person';
+// import Person from './components/Person';
 
 const HomeLayout = () => {
-  const controls = useAnimation();
+  // const controls = useAnimation();
 
-  const hoverEnter = { scale: 1.04, y: -8 };
-  const hoverLeave = { scale: 1, y: 0 };
+  // const hoverEnter = { scale: 1.04, y: -8 };
+  // const hoverLeave = { scale: 1, y: 0 };
 
   const fadeUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.8, ease: "easeOut" }
+    transition: { duration: 0.8, ease: "easeOut" as const }
   };
 
   return (

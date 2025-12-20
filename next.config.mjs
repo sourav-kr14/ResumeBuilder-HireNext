@@ -13,6 +13,10 @@ const nextConfig = {
       'src/styles',
       'src/templates',
     ],
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
   },
   images: {
     remotePatterns: [

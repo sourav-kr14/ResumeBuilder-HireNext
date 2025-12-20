@@ -9,6 +9,7 @@ export interface IExperienceItem {
   summary: string;
   highlights: string[];
   isWorkingHere: boolean;
+  location?:string;
 }
 
 export interface IExperienceStore {
