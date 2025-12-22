@@ -11,7 +11,7 @@ import Achievements from './components/Achievements';
 import Courses from './components/Courses';
 import AboutMe from './components/AboutMe';
 import UnratedSkills from './components/UnratedSkills';
-import BasicIntro from './components/BasicIntro'; // Importing your existing component
+import BasicIntro from './components/BasicIntro'; 
 import { useThemes } from '@/stores/themes';
 
 const ResumeContainer = styled.div`

@@ -5,6 +5,100 @@ import { Button } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
 // import Person from './components/Person';
+const row1 = [
+  {
+    n: 'Amit',
+    p: 'https://i.pravatar.cc/150?u=1',
+    c: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg',
+  },
+  {
+    n: 'Sonal',
+    p: 'https://i.pravatar.cc/150?u=2',
+    c: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg',
+  },
+  {
+    n: 'Shriyansh Sahu',
+    p: 'https://i.pravatar.cc/150?u=1',
+    c: 'https://download.logo.wine/logo/Flipkart/Flipkart-Logo.wine.png',
+  },
+  {
+    n: 'Meghana',
+    p: 'https://i.pravatar.cc/150?u=2',
+    c: 'https://download.logo.wine/logo/Flipkart/Flipkart-Logo.wine.png',
+  },
+  {
+    n: 'Abhishek',
+    p: 'https://i.pravatar.cc/150?u=3',
+    c: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg',
+  },
+  {
+    n: 'Taksheel',
+    p: 'https://i.pravatar.cc/150?u=4',
+    c: 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg',
+  },
+  {
+    n: 'Nabajyoti',
+    p: 'https://i.pravatar.cc/150?u=5',
+    c: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg',
+  },
+  {
+    n: 'Rahul',
+    p: 'https://i.pravatar.cc/150?u=7',
+    c: 'https://upload.wikimedia.org/wikipedia/commons/c/cc/Uber_logo_2018.png',
+  },
+  {
+    n: 'Yashwant',
+    p: 'https://i.pravatar.cc/150?u=10',
+    c: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg',
+  },
+];
+const row2 = [
+  {
+    n: 'Rahul',
+    p: 'https://i.pravatar.cc/150?u=3',
+    c: 'https://upload.wikimedia.org/wikipedia/commons/c/cc/Uber_logo_2018.png',
+  },
+  {
+    n: 'Priya',
+    p: 'https://i.pravatar.cc/150?u=4',
+    c: 'https://download.logo.wine/logo/Flipkart/Flipkart-Logo.wine.png',
+  },
+  {
+    n: 'Shriyansh Sahu',
+    p: 'https://i.pravatar.cc/150?u=1',
+    c: 'https://download.logo.wine/logo/Flipkart/Flipkart-Logo.wine.png',
+  },
+  {
+    n: 'Meghana',
+    p: 'https://i.pravatar.cc/150?u=2',
+    c: 'https://download.logo.wine/logo/Flipkart/Flipkart-Logo.wine.png',
+  },
+  {
+    n: 'Abhishek',
+    p: 'https://i.pravatar.cc/150?u=3',
+    c: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg',
+  },
+  {
+    n: 'Taksheel',
+    p: 'https://i.pravatar.cc/150?u=4',
+    c: 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg',
+  },
+  {
+    n: 'Nabajyoti',
+    p: 'https://i.pravatar.cc/150?u=5',
+    c: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg',
+  },
+  {
+    n: 'Rahul',
+    p: 'https://i.pravatar.cc/150?u=7',
+    c: 'https://upload.wikimedia.org/wikipedia/commons/c/cc/Uber_logo_2018.png',
+  },
+  {
+    n: 'Yashwant',
+    p: 'https://i.pravatar.cc/150?u=10',
+    c: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg',
+  },
+];
 const templates = [
   { id: 'compact', src: '/templates/compact.png' },
   { id: 'elegant', src: '/templates/elegant.png' },
@@ -82,6 +176,7 @@ const HomeLayout = () => {
       </nav>
 
       {/* Hero Section - AmbitionBox Level Trust & Conversion */}
+
       <section className="relative overflow-hidden bg-gradient-to-br from-indigo-50 via-white to-purple-50 pt-20 pb-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -178,6 +273,50 @@ const HomeLayout = () => {
               fill="white"
             />
           </svg>
+        </div>
+      </section>
+      {/* ===== Our Users Work At (Square + Smooth Movement) ===== */}
+      <section className="py-20 bg-gray-50 overflow-hidden">
+        <div className="w-full px-0">
+          <h3 className="text-center text-3xl font-bold text-gray-900 mb-12">
+            Our Users Work At Top Companies
+          </h3>
+
+          {/* Row 1 */}
+          <div className="marquee-wrapper">
+            <div className="animate-marquee">
+              {[...row1, ...row1].map((item, i) => (
+                <div
+                  key={i}
+                  className="w-48 h-48 bg-white border border-gray-200
+                   rounded-xl flex flex-col items-center justify-center
+                   shadow-sm hover:shadow-md transition"
+                >
+                  <img src={item.p} alt={item.n} className="w-16 h-16 rounded-full mb-3" />
+                  <p className="font-semibold text-gray-900 text-center">{item.n}</p>
+                  <img src={item.c} alt="company" className="h-6 mt-3 opacity-80" />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Row 2 */}
+          <div className="marquee-wrapper mt-10">
+            <div className="animate-marquee-reverse">
+              {[...row2, ...row2].map((item, i) => (
+                <div
+                  key={i}
+                  className="w-48 h-48 bg-white border border-gray-200
+                   rounded-xl flex flex-col items-center justify-center
+                   shadow-sm hover:shadow-md transition"
+                >
+                  <img src={item.p} alt={item.n} className="w-16 h-16 rounded-full mb-3" />
+                  <p className="font-semibold text-gray-900 text-center">{item.n}</p>
+                  <img src={item.c} alt="company" className="h-6 mt-3 opacity-80" />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 

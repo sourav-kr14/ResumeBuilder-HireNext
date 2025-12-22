@@ -29,3 +29,38 @@ body {
   size: A4 !important;
   margin: 0 !important;
 }
+
+/* ================= MARQUEE ANIMATION ================= */
+@keyframes marqueeMove {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Wrapper – hide extra content */
+.marquee-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Shared styles */
+.animate-marquee,
+.animate-marquee-reverse {
+  display: flex;
+  width: max-content;
+  gap: 1.5rem;
+  will-change: transform;
+}
+
+/* Left → Right */
+.animate-marquee {
+  animation: marqueeMove 30s linear infinite;
+}
+
+/* Right → Left */
+.animate-marquee-reverse {
+  animation: marqueeMove 30s linear infinite reverse;
+}

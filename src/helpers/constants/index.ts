@@ -193,6 +193,12 @@ export const AVAILABLE_TEMPLATES: ITemplate = {
     thumbnail: '/templates/navy.png',
     component: dynamic(() => import('@/templates/navy/NavyTemplate')),
   },
+   minimal: {
+    id: 'minimal',
+    name: 'Minimal Resume',
+    thumbnail: '/templates/minimal.png',
+    component: dynamic(() => import('@/templates/minimal/MinimalTemplate')),
+  },
 };
 
 export const CUSTOM_THEME_COLOR: IThemeColor = {
