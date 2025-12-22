@@ -11,6 +11,7 @@ import Achievements from './components/Achievements';
 import Courses from './components/Courses';
 import AboutMe from './components/AboutMe';
 import UnratedSkills from './components/UnratedSkills';
+import BasicIntro from './components/BasicIntro'; // Importing your existing component
 import { useThemes } from '@/stores/themes';
 
 const ResumeContainer = styled.div`
@@ -35,70 +36,29 @@ const ResumeContainer = styled.div`
 `;
 
 const Header = styled.header<{ themeBg: string }>`
-  background-color: ${(props) => props.themeBg || '#27345c'}; 
+  background-color: ${(props) => props.themeBg || '#27345c'};
   color: white;
-  padding: 30px 40px; 
+  padding: 30px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   transition: background-color 0.3s ease;
-`;
-
-const HeaderInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-
-  h1 {
-    font-size: 32px; 
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin: 0;
-  }
-
-  .label {
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 4px;
-  }
-
-  .contacts {
-    display: flex;
-    flex-wrap: wrap;
-    column-gap: 15px;
-    row-gap: 4px;
-    font-size: 11px;
-    opacity: 0.9;
-
-    span {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-  }
-`;
-
-const ProfileImage = styled.img`
-  width: 100px; 
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  z-index: 10;
 `;
 
 const Body = styled.div`
   display: grid;
   grid-template-columns: 1.85fr 1fr;
-  gap: 30px; 
-  padding: 25px 40px; 
+  gap: 30px;
+  padding: 25px 40px;
   flex-grow: 1;
 `;
 
 const Column = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px; 
+  gap: 20px;
 `;
 
 export default function ExecutiveTemplate() {
@@ -109,38 +69,70 @@ export default function ExecutiveTemplate() {
 
   const { basics, work, education, skills, activities } = resumeData;
 
+  // Logic to separate technical keywords from spoken languages
+  const techKeywords = [
+    'react',
+    'sql',
+    'javascript',
+    'typescript',
+    'python',
+    'java',
+    'html',
+    'css',
+    'node',
+    'angular',
+    'git',
+    'docker',
+    'aws',
+    'php',
+    'mongodb',
+    'c++',
+    'c#',
+    'spring',
+    'vue',
+    'express',
+    'postgresql',
+    'redis',
+    'linux',
+  ];
 
-  const achievementsHTML = activities?.achievements || '';
-  const courseItems = activities?.certifications || resumeData?.certificates || resumeData?.awards || '';
-  const involvementsHTML = activities?.involvements || '';
-  const spokenLanguages = skills?.languages || resumeData?.languages || [];
-
-  const allTechnicalSkills = [
-    ...(skills?.languages_programming || []),
+  const programmingSkills = [
+    ...(skills.languages || []).filter((s: any) => techKeywords.includes(s.name.toLowerCase())),
     ...(skills?.technologies || []),
     ...(skills?.frameworks || []),
+    ...(skills?.libraries || []),
     ...(skills?.tools || []),
     ...(skills?.databases || []),
+    ...(skills?.practices || []),
   ];
+
+  const spokenLanguages = (skills.languages || []).filter(
+    (s: any) => !techKeywords.includes(s.name.toLowerCase())
+  );
+
+  const achievementsHTML = activities?.achievements || '';
+  const courseItems =
+    activities?.certifications || resumeData?.certificates || resumeData?.awards || [];
+  const involvementsHTML = activities?.involvements || '';
 
   return (
     <ResumeContainer>
       <Header themeBg={activeTheme.titleColor}>
-        <HeaderInfo>
-          <h1>{basics.name}</h1>
-          <div className="label">{basics.label}</div>
-          <div className="contacts">
-            {basics.email && <span>@ {basics.email}</span>}
-            {basics.phone && <span>📞 {basics.phone}</span>}
-            {basics.url && <span>🔗 LinkedIn</span>}
-            {basics.location && (
-              <span>
-                📍 {basics.location.city}, {basics.location.region}
-              </span>
-            )}
-          </div>
-        </HeaderInfo>
-        {basics.image && <ProfileImage src={basics.image} alt={basics.name} />}
+        <BasicIntro basics={basics} />
+
+        {basics.image && (
+          <img
+            src={basics.image}
+            alt={basics.name}
+            style={{
+              width: '100px',
+              height: '100px',
+              borderRadius: '50%',
+              objectFit: 'cover',
+              border: '3px solid rgba(255, 255, 255, 0.2)',
+            }}
+          />
+        )}
       </Header>
 
       <Body>
@@ -179,9 +171,9 @@ export default function ExecutiveTemplate() {
             </Section>
           </SectionValidator>
 
-          <SectionValidator value={allTechnicalSkills}>
+          <SectionValidator value={programmingSkills}>
             <Section title="Skills" isSidebar titleColor={activeTheme.titleColor}>
-              <UnratedSkills items={allTechnicalSkills} />
+              <UnratedSkills items={programmingSkills} />
             </Section>
           </SectionValidator>
 

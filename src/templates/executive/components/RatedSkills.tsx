@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 const SkillsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 6px 8px; 
+  gap: 6px 8px;
   margin-top: 5px;
 `;
 
@@ -19,7 +19,7 @@ const SkillName = styled.span`
   font-weight: 700;
   color: #1a1a1a;
   background-color: transparent;
-  border-bottom: 2px solid #27345c; 
+  border-bottom: 2px solid #27345c;
   padding-bottom: 1px;
   line-height: 1.2;
   white-space: nowrap;

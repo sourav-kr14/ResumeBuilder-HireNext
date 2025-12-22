@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 const CourseGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px; 
+  gap: 12px;
   margin-top: 2px;
 
   @media (max-width: 600px) {
@@ -15,22 +15,24 @@ const CourseGrid = styled.div`
 const CourseWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 2px; 
+  gap: 2px;
 
   .course-content {
     font-size: 11px;
     line-height: 1.3;
-    color: #4b5563; 
-    
-    strong, b {
+    color: #4b5563;
+
+    strong,
+    b {
       display: block;
       font-size: 12px;
-      color: #1a1a1a; 
+      color: #1a1a1a;
       font-weight: 700;
       margin-bottom: 1px;
     }
 
-    span, p {
+    span,
+    p {
       display: block;
       margin: 0;
       font-weight: 600;
@@ -53,7 +55,7 @@ const CourseWrapper = styled.div`
 `;
 
 export default function Courses({ data }: { data: any }) {
-  if (!data || data === "<p><br></p>") return null;
+  if (!data || data === '<p><br></p>') return null;
 
   if (Array.isArray(data)) {
     if (data.length === 0) return null;
@@ -78,7 +80,7 @@ export default function Courses({ data }: { data: any }) {
     );
   }
 
-  if (typeof data === 'string' && data.trim() !== "") {
+  if (typeof data === 'string' && data.trim() !== '') {
     return (
       <CourseGrid>
         <CourseWrapper>

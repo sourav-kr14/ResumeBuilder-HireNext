@@ -7,14 +7,14 @@ const SummaryContainer = styled.div`
 
 const SummaryText = styled.div`
   font-size: 12.5px;
-  line-height: 1.4; 
+  line-height: 1.4;
   color: #333;
-  text-align: justify; 
+  text-align: justify;
 
   p {
     margin: 0;
-    margin-bottom: 8px; 
-    
+    margin-bottom: 8px;
+
     &:last-child {
       margin-bottom: 0;
     }
@@ -22,7 +22,7 @@ const SummaryText = styled.div`
 `;
 
 export default function AboutMe({ summary }: { summary: string }) {
-  if (!summary || summary.trim() === "") return null;
+  if (!summary || summary.trim() === '') return null;
 
   return (
     <SummaryContainer>

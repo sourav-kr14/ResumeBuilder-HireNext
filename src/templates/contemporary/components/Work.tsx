@@ -6,7 +6,7 @@ import styled from '@emotion/styled';
 const WorkContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 12px; 
+  gap: 12px;
 `;
 
 const CompanyHeader = styled.div`
@@ -33,7 +33,7 @@ const RoleRow = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  margin-bottom: 1px; 
+  margin-bottom: 1px;
 `;
 
 const Position = styled.span`
@@ -49,21 +49,20 @@ const DateRange = styled.span`
 `;
 
 const SummaryWrapper = styled.div`
-
   font-size: 11px;
   line-height: 1.4;
   color: #4b5563;
 
   ul {
     list-style-type: disc;
-    padding-left: 16px; 
+    padding-left: 16px;
     margin-top: 2px;
     margin-bottom: 0;
   }
 
   li {
-    margin-bottom: 2px; 
-    
+    margin-bottom: 2px;
+
     &:last-child {
       margin-bottom: 0;
     }
@@ -89,7 +88,8 @@ export default function Work({ work = [] }: { work: IExperienceItem[] }) {
           <RoleRow>
             <Position>{company.position}</Position>
             <DateRange>
-              {dateParser(company.startDate)} — {company.isWorkingHere ? 'Present' : dateParser(company.endDate)}
+              {dateParser(company.startDate)} —{' '}
+              {company.isWorkingHere ? 'Present' : dateParser(company.endDate)}
             </DateRange>
           </RoleRow>
 

@@ -29,17 +29,11 @@ import { Fragment, ReactNode } from 'react';
 //   return <Fragment>{children}</Fragment>;
 // };
 
-export const SectionValidator = ({
-  value,
-  children,
-}: {
-  value: any;
-  children: ReactNode;
-}) => {
+export const SectionValidator = ({ value, children }: { value: any; children: ReactNode }) => {
   // If value exists and is a string with length, or an array with items, show it.
   // We remove useMemo and complex logic to ensure it doesn't fail.
-  const hasContent = 
-    (typeof value === 'string' && value.length > 0) || 
+  const hasContent =
+    (typeof value === 'string' && value.length > 0) ||
     (Array.isArray(value) && value.length > 0) ||
     (value && typeof value === 'object' && Object.keys(value).length > 0);
 

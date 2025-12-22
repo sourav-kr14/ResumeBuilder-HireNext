@@ -1,24 +1,25 @@
 import React, { useContext } from 'react';
+import styled from '@emotion/styled';
+import { StateContext } from '@/modules/builder/resume/ResumeLayout';
+import { SectionValidator } from '@/helpers/common/components/ValidSectionRenderer';
+import { Section } from './components/Section';
+import { Education } from './components/Education';
+import { Objective } from './components/Objective';
 
 import AboutMe from './components/AboutMe';
 import Achievements from './components/Achievements';
 import BasicIntro from './components/BasicIntro';
-import { Education } from './components/Education';
 import Involvement from './components/Involvement';
-import { Objective } from './components/Objective';
 import RatedSkills from './components/RatedSkills';
-import { Section } from './components/Section';
-import { SectionValidator } from '@/helpers/common/components/ValidSectionRenderer';
-import { StateContext } from '@/modules/builder/resume/ResumeLayout';
 import UnratedSkills from './components/UnratedSkills';
 import Work from './components/Work';
-import styled from '@emotion/styled';
+import Languages from './components/Languages';
 
 const ResumeContainer = styled.div`
   display: flex;
   height: 100%;
   padding: 40px 25px;
-  column-gap: 10px;
+  column-gap: 15px;
 
   @media print {
     border: none;
@@ -44,24 +45,74 @@ const RightSection = styled.div`
 
 export default function NavyTemplate() {
   const resumeData = useContext(StateContext);
-  const skills = resumeData.skills;
-  const involvements = resumeData.activities.involvements;
-  const achievements = resumeData.activities.achievements;
+
+  if (!resumeData) return null;
+
+  const { basics, work, education, skills, activities } = resumeData;
+
+  const techKeywords = [
+    'react',
+    'sql',
+    'javascript',
+    'typescript',
+    'python',
+    'java',
+    'html',
+    'css',
+    'node',
+    'angular',
+    'git',
+    'docker',
+    'aws',
+    'php',
+    'mongodb',
+    'c++',
+    'c#',
+    'spring',
+    'vue',
+    'express',
+    'postgresql',
+    'redis',
+    'linux',
+  ];
+
+  // Technical Skills Logic (Programming, Frameworks, etc.)
+  const programmingSkills = [
+    ...(skills.languages || []).filter((s: any) => techKeywords.includes(s.name.toLowerCase())),
+    ...(skills?.frameworks || []),
+  ];
+
+  const toolsAndOthers = [
+    ...(skills?.technologies || []),
+    ...(skills?.libraries || []),
+    ...(skills?.databases || []),
+    ...(skills?.tools || []),
+    ...(skills?.practices || []),
+  ];
+
+  // Spoken Languages Logic (Non-tech entries from the languages array)
+  const spokenLanguages = (skills.languages || []).filter(
+    (s: any) => !techKeywords.includes(s.name.toLowerCase())
+  );
+
+  const involvements = activities?.involvements;
+  const achievements = activities?.achievements;
 
   return (
     <ResumeContainer>
       <LeftSection>
         <Section
-          title={resumeData.basics?.name}
-          profiles={resumeData.basics.profiles}
-          portfolioUrl={resumeData.basics.url}
+          title={basics?.name}
+          profiles={basics.profiles}
+          portfolioUrl={basics.url}
           titleClassname="text-xl font-medium"
         >
-          <BasicIntro basics={resumeData.basics} />
+          <BasicIntro basics={basics} />
         </Section>
-        <SectionValidator value={resumeData.work}>
+
+        <SectionValidator value={work}>
           <Section title="Work Experience">
-            <Work work={resumeData.work} />
+            <Work work={work} />
           </Section>
         </SectionValidator>
 
@@ -79,42 +130,42 @@ export default function NavyTemplate() {
       </LeftSection>
 
       <RightSection>
-        <SectionValidator value={resumeData.basics.summary}>
+        <SectionValidator value={basics.summary}>
           <Section title="Summary">
-            <AboutMe summary={resumeData.basics.summary} profileImage={resumeData.basics.image} />
+            <AboutMe summary={basics.summary} profileImage={basics.image} />
           </Section>
         </SectionValidator>
 
-        <SectionValidator value={resumeData.basics.objective}>
+        <SectionValidator value={basics.objective}>
           <Section title="Career Objective">
-            <Objective objective={resumeData.basics.objective} />
+            <Objective objective={basics.objective} />
           </Section>
         </SectionValidator>
 
-        <SectionValidator value={skills.languages.concat(skills.frameworks)}>
-          <Section title="Technical expertise">
-            <RatedSkills items={skills.languages.concat(skills.frameworks)} />
+        {/* Technical Expertise (Rated) */}
+        <SectionValidator value={programmingSkills}>
+          <Section title="Technical Expertise">
+            <RatedSkills items={programmingSkills} />
           </Section>
         </SectionValidator>
 
-        <SectionValidator value={skills.technologies.concat(skills.libraries, skills.databases)}>
+        {/* Spoken Languages Section (Newly Added based on your Executive Logic) */}
+        <SectionValidator value={spokenLanguages}>
+          <Section title="Languages">
+            <Languages items={spokenLanguages} />
+          </Section>
+        </SectionValidator>
+
+        {/* Other Skills (Unrated) */}
+        <SectionValidator value={toolsAndOthers}>
           <Section title="Skills / Exposure">
-            <UnratedSkills items={skills.technologies.concat(skills.libraries, skills.databases)} />
+            <UnratedSkills items={toolsAndOthers} />
           </Section>
         </SectionValidator>
-        <SectionValidator value={skills.practices}>
-          <Section title="Methodology/Approach">
-            <UnratedSkills items={skills.practices} />
-          </Section>
-        </SectionValidator>
-        <SectionValidator value={skills.tools}>
-          <Section title="Tools">
-            <UnratedSkills items={skills.tools} />
-          </Section>
-        </SectionValidator>
-        <SectionValidator value={resumeData.education}>
+
+        <SectionValidator value={education}>
           <Section title="Education">
-            <Education education={resumeData.education} />
+            <Education education={education} />
           </Section>
         </SectionValidator>
       </RightSection>

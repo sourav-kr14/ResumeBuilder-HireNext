@@ -5,7 +5,7 @@ const SkillsWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   /* COMPACT: Reduced gap to maximize vertical space */
-  gap: 6px; 
+  gap: 6px;
   margin-top: 5px;
 `;
 
@@ -37,9 +37,7 @@ export default function UnratedSkills({ items }: { items: ISkillItem[] }) {
   return (
     <SkillsWrapper>
       {items.map((skill) => (
-        <SkillBadge key={skill.name}>
-          {skill.name}
-        </SkillBadge>
+        <SkillBadge key={skill.name}>{skill.name}</SkillBadge>
       ))}
     </SkillsWrapper>
   );

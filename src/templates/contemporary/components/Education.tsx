@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 const EducationContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px; 
+  gap: 10px;
 `;
 
 const EduHeader = styled.div`
@@ -18,7 +18,7 @@ const EduHeader = styled.div`
 const Institution = styled.h3`
   font-size: 13px;
   font-weight: 700;
-  color: #1a1a1a; 
+  color: #1a1a1a;
   margin: 0;
 `;
 
@@ -32,7 +32,7 @@ const DegreeRow = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  margin-top: 1px; 
+  margin-top: 1px;
 `;
 
 const StudyInfo = styled.span`
@@ -57,15 +57,17 @@ export const Education = ({ education }: { education: IEducation[] }) => {
           <div key={index}>
             <EduHeader>
               <Institution>{item.institution}</Institution>
-              <Location>{item.url?.replace('https://', '') || 'Denver, Colorado'}</Location> 
+              <Location>{item.url?.replace('https://', '') || 'Denver, Colorado'}</Location>
             </EduHeader>
 
             <DegreeRow>
               <StudyInfo>
-                {item.studyType}{item.area ? ` in ${item.area}` : ''}
+                {item.studyType}
+                {item.area ? ` in ${item.area}` : ''}
               </StudyInfo>
               <DateRange>
-                {dateParser(item.startDate)} — {item.isStudyingHere ? 'Present' : dateParser(item.endDate)}
+                {dateParser(item.startDate)} —{' '}
+                {item.isStudyingHere ? 'Present' : dateParser(item.endDate)}
               </DateRange>
             </DegreeRow>
           </div>

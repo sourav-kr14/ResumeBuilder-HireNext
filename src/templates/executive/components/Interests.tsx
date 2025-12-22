@@ -6,16 +6,16 @@ import { FaRobot, FaUsers, FaTableTennis, FaPlane } from 'react-icons/fa';
 const InterestsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0; 
+  gap: 0;
 `;
 
 const InterestEntry = styled.div`
   display: flex;
-  gap: 12px; 
+  gap: 12px;
   align-items: flex-start;
   padding-bottom: 10px;
   margin-bottom: 10px;
-  border-bottom: 1px dotted #ccc; 
+  border-bottom: 1px dotted #ccc;
 
   &:last-child {
     border-bottom: none;
@@ -27,7 +27,7 @@ const InterestEntry = styled.div`
 const IconWrapper = styled.div`
   font-size: 14px;
   margin-top: 3px;
-  color: #27345c; 
+  color: #27345c;
   flex-shrink: 0;
 `;
 
@@ -45,7 +45,7 @@ const Title = styled.h4`
 `;
 
 const SummaryWrapper = styled.div`
-  font-size: 11px; 
+  font-size: 11px;
   color: #555;
   margin-top: 2px;
   line-height: 1.4;
@@ -64,11 +64,9 @@ export default function Interests({ items = [] }: { items: any[] }) {
     <InterestsContainer>
       {items.map((item, i) => (
         <InterestEntry key={i}>
-          <IconWrapper>
-            {icons[i % icons.length]}
-          </IconWrapper>
+          <IconWrapper>{icons[i % icons.length]}</IconWrapper>
           <Content>
-            <Title>{item.name || item.title || "Interest"}</Title>
+            <Title>{item.name || item.title || 'Interest'}</Title>
             <SummaryWrapper>
               <HTMLRenderer htmlString={item.summary} />
             </SummaryWrapper>

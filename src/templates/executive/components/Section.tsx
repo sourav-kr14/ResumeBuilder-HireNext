@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 const SectionWrapper = styled.section<{ isSidebar?: boolean }>`
-  margin-bottom: ${(props) => (props.isSidebar ? '14px' : '18px')}; 
+  margin-bottom: ${(props) => (props.isSidebar ? '14px' : '18px')};
   width: 100%;
   &:last-child {
     margin-bottom: 0;
@@ -16,21 +16,20 @@ const SectionTitle = styled.h2<{ isSidebar?: boolean; titleColor?: string }>`
   text-transform: uppercase;
   /* Apply the theme color to the text */
   color: ${(props) => props.titleColor || '#1a1a1a'};
-  
+
   /* Apply the theme color to the bottom border */
-  border-bottom: ${(props) => 
-    props.isSidebar 
-      ? '1px solid #e0e0e0' 
-      : `2px solid ${props.titleColor || '#1a1a1a'}`
-  };
-  
+  border-bottom: ${(props) =>
+    props.isSidebar ? '1px solid #e0e0e0' : `2px solid ${props.titleColor || '#1a1a1a'}`};
+
   padding-bottom: 3px;
   margin-bottom: 10px;
   letter-spacing: 0.08em;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: color 0.3s ease, border-color 0.3s ease;
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease;
 `;
 
 const Content = styled.div`
@@ -60,9 +59,7 @@ export function Section({
       <SectionTitle isSidebar={isSidebar} titleColor={titleColor}>
         {title}
       </SectionTitle>
-      <Content>
-        {children}
-      </Content>
+      <Content>{children}</Content>
     </SectionWrapper>
   );
 }

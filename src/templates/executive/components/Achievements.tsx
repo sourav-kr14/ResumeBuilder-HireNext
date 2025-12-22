@@ -15,22 +15,20 @@ const AchievementsWrapper = styled.div`
 
   li {
     margin-bottom: 6px;
-    
+
     &:last-child {
       margin-bottom: 0;
     }
   }
 
- 
-  b, strong {
+  b,
+  strong {
     color: #1a1a1a;
     font-weight: 700;
   }
 `;
 
-
 export default function Achievements({ data }: { data: string }) {
-
   if (!data || data === '<p><br></p>' || data.length < 5) return null;
 
   return (

@@ -7,13 +7,13 @@ const SummaryContainer = styled.div`
 
 const SummaryText = styled.div`
   font-size: 12.5px;
-  line-height: 1.4; 
-  color: #444; 
+  line-height: 1.4;
+  color: #444;
   text-align: justify;
 
   p {
-    margin-bottom: 6px; 
-    
+    margin-bottom: 6px;
+
     &:last-child {
       margin-bottom: 0;
     }

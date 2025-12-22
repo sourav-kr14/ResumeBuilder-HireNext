@@ -1,18 +1,16 @@
 import { IBasics } from '@/stores/index.interface';
 import styled from '@emotion/styled';
-// 1. Import the theme hook
 import { useThemes } from '@/stores/themes';
 
 const IntroContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 4px;
-  margin-bottom: 18px; 
+  margin-bottom: 18px;
 `;
 
-// 2. Updated Name to use titleColor
 const Name = styled.h1<{ titleColor?: string }>`
-  font-family: 'Playfair Display', serif; 
+  font-family: 'Playfair Display', serif;
   font-size: 30px;
   font-weight: 700;
   color: ${(props) => props.titleColor || '#1a1a1a'};
@@ -22,12 +20,11 @@ const Name = styled.h1<{ titleColor?: string }>`
   transition: color 0.3s ease;
 `;
 
-// 3. Updated Headline and separator bars to use titleColor
 const Headline = styled.div<{ titleColor?: string }>`
   font-family: 'Inter', sans-serif;
   font-size: 13px;
   font-weight: 600;
-  color: ${(props) => props.titleColor || '#00796b'}; 
+  color: ${(props) => props.titleColor || '#00796b'};
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
@@ -45,13 +42,14 @@ const Headline = styled.div<{ titleColor?: string }>`
 const ContactRow = styled.div`
   display: flex;
   flex-wrap: wrap;
-  column-gap: 12px; 
+  column-gap: 12px;
   row-gap: 4px;
-  margin-top: 4px; 
+  margin-top: 4px;
   font-size: 11.5px;
   color: #666;
 
-  span, a {
+  span,
+  a {
     display: flex;
     align-items: center;
     gap: 3px;
@@ -66,7 +64,6 @@ export default function BasicIntro({ basics }: { basics: IBasics }) {
 
   return (
     <IntroContainer>
-      {/* 5. Pass titleColor to the styled components */}
       <Name titleColor={activeTheme.titleColor}>{basics.name}</Name>
 
       <Headline titleColor={activeTheme.titleColor}>
@@ -78,25 +75,26 @@ export default function BasicIntro({ basics }: { basics: IBasics }) {
       <ContactRow>
         {basics.email && (
           <a href={`mailto:${basics.email}`}>
-            <span style={{opacity: 0.6}}>@</span> {basics.email}
+            <span style={{ opacity: 0.6 }}>@</span> {basics.email}
           </a>
         )}
-        
+
         {basics.url && (
           <a href={basics.url} target="_blank" rel="noreferrer">
-            <span style={{opacity: 0.6}}>🔗</span> LinkedIn
+            <span style={{ opacity: 0.6 }}>🔗</span> LinkedIn
           </a>
         )}
 
         {basics.location?.city && (
           <span>
-            <span style={{opacity: 0.6}}>📍</span> {basics.location.city}, {basics.location.region}
+            <span style={{ opacity: 0.6 }}>📍</span> {basics.location.city},{' '}
+            {basics.location.region}
           </span>
         )}
-        
+
         {basics.phone && (
           <a href={`tel:${basics.phone}`}>
-            <span style={{opacity: 0.6}}>📞</span> {basics.phone}
+            <span style={{ opacity: 0.6 }}>📞</span> {basics.phone}
           </a>
         )}
       </ContactRow>

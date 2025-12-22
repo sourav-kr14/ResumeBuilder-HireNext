@@ -3,8 +3,8 @@ import styled from '@emotion/styled';
 
 const SkillsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr); 
-  gap: 8px 25px; 
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px 25px;
 `;
 
 const SkillWrapper = styled.div`
@@ -15,9 +15,9 @@ const SkillWrapper = styled.div`
 const SkillName = styled.span`
   font-size: 11.5px;
   font-weight: 700;
-  color: #27345c; 
+  color: #27345c;
   padding-bottom: 2px;
-  border-bottom: 1.5px solid #cbd5e1; 
+  border-bottom: 1.5px solid #cbd5e1;
   display: inline-block;
   width: 100%;
 `;
@@ -29,9 +29,7 @@ export default function RatedSkills({ items = [] }: { items: ISkillItem[] }) {
     <SkillsGrid>
       {items.map((skill, i) => (
         <SkillWrapper key={i}>
-          <SkillName>
-            {skill.name}
-          </SkillName>
+          <SkillName>{skill.name}</SkillName>
         </SkillWrapper>
       ))}
     </SkillsGrid>

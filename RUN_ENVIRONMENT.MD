@@ -5,7 +5,7 @@
 1. Open the terminal / command prompt in your system
 1. Clone the repo
    ```
-   $ git clone 
+   $ git clone
    ```
 1. Install the dependencies
    ```
@@ -24,7 +24,7 @@ Prequisite: Install [Docker](https://docs.docker.com/engine/install/).
 1. Open the terminal / command prompt in your system
 1. Clone the repo
    ```
-   $ git clone 
+   $ git clone
    ```
 1. Run the below command in the terminal from within the cloned project directory
 

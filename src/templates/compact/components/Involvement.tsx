@@ -15,10 +15,10 @@ const InvolvementItemContainer = styled.div`
 const InvolvementTitle = styled.h4`
   font-size: 14px;
   font-weight: 600;
-  color: #1a3c7d; 
+  color: #1a3c7d;
   line-height: 1.2;
   margin: 0;
-  text-transform: none; 
+  text-transform: none;
 `;
 
 const SummaryWrapper = styled.div`
@@ -27,7 +27,6 @@ const SummaryWrapper = styled.div`
   margin-top: 4px;
   line-height: 1.4;
 
- 
   ul {
     list-style-type: disc;
     margin-left: 15px;
@@ -41,10 +40,8 @@ export default function Involvement({ items = [] }: { items: any[] }) {
   return (
     <div className="flex flex-col">
       {items.map((item, i) => (
-        <InvolvementItemContainer key={i}>   
-          <InvolvementTitle>
-            {item.name}
-          </InvolvementTitle>
+        <InvolvementItemContainer key={i}>
+          <InvolvementTitle>{item.name}</InvolvementTitle>
           {item.summary && (
             <SummaryWrapper>
               <HTMLRenderer htmlString={item.summary} />

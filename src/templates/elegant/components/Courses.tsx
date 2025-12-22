@@ -15,27 +15,29 @@ const CourseGrid = styled.div`
 `;
 
 const CourseWrapper = styled.div`
-  .course-html-content, .course-content {
-    font-size: 11px; 
-    color: rgba(255, 255, 255, 0.85); 
+  .course-html-content,
+  .course-content {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.85);
     line-height: 1.3;
-    
-    strong, b {
+
+    strong,
+    b {
       display: block;
-      font-size: 12px; 
+      font-size: 12px;
       color: #ffffff;
       font-weight: 700;
-      margin-bottom: 2px; 
+      margin-bottom: 2px;
       letter-spacing: 0.3px;
     }
 
     p {
       margin: 0;
-      margin-bottom: 4px; 
+      margin-bottom: 4px;
     }
 
     ul {
-      list-style-type: none !important; 
+      list-style-type: none !important;
       padding: 0 !important;
       margin: 4px 0 0 0;
     }
@@ -45,9 +47,9 @@ const CourseWrapper = styled.div`
       position: relative;
       padding-left: 12px;
       list-style-type: none !important;
-      
+
       &:before {
-        content: "•";
+        content: '•';
         position: absolute;
         left: 0;
         color: rgba(255, 255, 255, 0.4);
@@ -87,7 +89,7 @@ export default function Courses({ data }: { data: any }) {
     );
   }
 
-  if (typeof data === 'string' && data.trim() !== "") {
+  if (typeof data === 'string' && data.trim() !== '') {
     return (
       <CoursesContainer>
         <CourseWrapper>

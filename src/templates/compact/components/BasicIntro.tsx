@@ -8,9 +8,9 @@ const IntroContainer = styled.div`
 `;
 
 const Name = styled.h1`
-  font-size: 28px; 
+  font-size: 28px;
   font-weight: 800;
-  color: #1a1a1a; 
+  color: #1a1a1a;
   margin: 0;
   letter-spacing: -0.5px;
   text-transform: uppercase;
@@ -27,12 +27,13 @@ const Label = styled.div`
 const ContactWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 12px; 
+  gap: 12px;
   align-items: center;
   margin-top: 6px;
-  font-size: 11px; 
+  font-size: 11px;
   color: #555;
-  span, a {
+  span,
+  a {
     display: flex;
     align-items: center;
     gap: 4px;
@@ -54,15 +55,13 @@ export default function BasicIntro({ basics }: { basics: IBasics }) {
 
       <ContactWrapper>
         {basics.email && (
-          <a href={`mailto:${basics.email}`}>
+          <a href={`mailto:${basics.email}`} className="contact-link">
             ✉️ {basics.email}
           </a>
         )}
 
-        {basics.phone && (
-          <span>📞 {basics.phone}</span>
-        )}
-        
+        {basics.phone && <span>📞 {basics.phone}</span>}
+
         {basics.url && (
           <a href={basics.url} target="_blank" rel="noreferrer">
             🔗 {basics.url.replace(/^https?:\/\/(www\.)?/, '')}
@@ -71,7 +70,7 @@ export default function BasicIntro({ basics }: { basics: IBasics }) {
 
         {basics.location?.city && (
           <span>
-            📍 {basics.location.city}, {basics.location.region}
+            📍 {basics.location.city} {basics.location.region}
           </span>
         )}
       </ContactWrapper>

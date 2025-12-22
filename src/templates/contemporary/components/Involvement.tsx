@@ -13,7 +13,7 @@ const InvolvementWrapper = styled.div`
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 6px; 
+    gap: 6px;
   }
 
   li {
@@ -25,16 +25,16 @@ const InvolvementWrapper = styled.div`
       content: '';
       position: absolute;
       left: 0;
-      top: 4px; 
+      top: 4px;
       width: 6px;
       height: 6px;
-      background-color: #27345c; 
+      background-color: #27345c;
       border-radius: 50%;
     }
   }
 
-
-  strong, b {
+  strong,
+  b {
     display: block;
     font-size: 12px;
     color: #1a1a1a;
@@ -49,7 +49,7 @@ const InvolvementWrapper = styled.div`
 `;
 
 export default function Involvement({ data }: { data: string }) {
-  if (!data || data.trim() === "" || data === "<p><br></p>") return null;
+  if (!data || data.trim() === '' || data === '<p><br></p>') return null;
 
   return (
     <InvolvementWrapper>

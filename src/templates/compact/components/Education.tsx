@@ -15,7 +15,7 @@ const EduItem = styled.div`
 const Degree = styled.h3`
   font-size: 13px;
   font-weight: 700;
-  color: #27345c; 
+  color: #27345c;
   line-height: 1.3;
   margin: 0;
 `;
@@ -23,13 +23,13 @@ const Degree = styled.h3`
 const Institution = styled.div`
   font-size: 11.5px;
   font-weight: 600;
-  color: #444; 
+  color: #444;
   margin-top: 1px;
 `;
 
 const MetaRow = styled.div`
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
   font-size: 10.5px;
   color: #666;
   margin-top: 2px;
@@ -45,16 +45,16 @@ export const Education = ({ education = [] }: { education: IEducation[] }) => {
         return (
           <EduItem key={index}>
             <Degree>
-              {item.studyType}{item.area ? ` in ${item.area}` : ''}
+              {item.studyType}
+              {item.area ? ` in ${item.area}` : ''}
             </Degree>
 
-            <Institution>
-              {item.institution}
-            </Institution>
+            <Institution>{item.institution}</Institution>
 
             <MetaRow>
               <span>
-                {dateParser(item.startDate)} — {item.isStudyingHere ? 'Present' : dateParser(item.endDate)}
+                {dateParser(item.startDate)} —{' '}
+                {item.isStudyingHere ? 'Present' : dateParser(item.endDate)}
               </span>
               {item.score && <span>GPA: {item.score}</span>}
             </MetaRow>

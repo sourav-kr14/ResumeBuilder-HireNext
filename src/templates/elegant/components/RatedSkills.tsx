@@ -6,10 +6,10 @@ const SkillsWrapper = styled.div`
   flex-wrap: wrap;
   column-gap: 6px;
   row-gap: 4px;
-  color: #e0f2f1; 
-  font-size: 12px; 
+  color: #e0f2f1;
+  font-size: 12px;
   line-height: 1.4;
-  margin-top: 2px; 
+  margin-top: 2px;
 `;
 
 const SkillItem = styled.span`
@@ -18,7 +18,7 @@ const SkillItem = styled.span`
 `;
 
 const Dot = styled.span`
-  color: rgba(255, 255, 255, 0.4); 
+  color: rgba(255, 255, 255, 0.4);
   font-size: 10px;
   align-self: center;
 `;

@@ -4,14 +4,14 @@ import { StateContext } from '@/modules/builder/resume/ResumeLayout';
 
 const LangGrid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr; 
+  grid-template-columns: 1fr 1fr;
   gap: 10px 25px;
   margin-top: 4px;
 `;
 
 const ProgressBarBase = styled.div`
   width: 100%;
-  height: 8px; 
+  height: 8px;
   background-color: #f1f1f1;
   border-radius: 2px;
   overflow: hidden;
@@ -19,18 +19,18 @@ const ProgressBarBase = styled.div`
 
 const ProgressFill = styled.div<{ width: string; bgColor: string }>`
   height: 100%;
- 
-  background-color: ${props => props.bgColor || '#00bcd4'};
-  width: ${props => props.width};
+
+  background-color: ${(props) => props.bgColor || '#00bcd4'};
+  width: ${(props) => props.width};
 
   background-image: linear-gradient(
-    45deg, 
-    rgba(255,255,255,.2) 25%, 
-    transparent 25%, 
-    transparent 50%, 
-    rgba(255,255,255,.2) 50%, 
-    rgba(255,255,255,.2) 75%, 
-    transparent 75%, 
+    45deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    transparent 75%,
     transparent
   );
   background-size: 12px 12px;
@@ -38,14 +38,12 @@ const ProgressFill = styled.div<{ width: string; bgColor: string }>`
 `;
 
 export default function Languages({ items = [] }: { items: any[] }) {
- 
   const resumeData = useContext(StateContext);
   const themeColor = resumeData?.metadata?.templateMeta?.themeColor;
 
   if (!Array.isArray(items) || items.length === 0) return null;
 
   const getWidth = (level: any) => {
-    
     const numericLevel = parseInt(level);
     if (!isNaN(numericLevel)) return `${numericLevel}%`;
 
@@ -69,11 +67,7 @@ export default function Languages({ items = [] }: { items: any[] }) {
             </span>
           </div>
           <ProgressBarBase>
-        
-            <ProgressFill 
-              width={getWidth(lang.level)} 
-              bgColor={themeColor} 
-            />
+            <ProgressFill width={getWidth(lang.level)} bgColor={themeColor} />
           </ProgressBarBase>
         </div>
       ))}

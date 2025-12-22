@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 const CoursesContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 8px; 
+  gap: 8px;
 `;
 
 const CourseWrapper = styled.div`
@@ -14,11 +14,12 @@ const CourseWrapper = styled.div`
   .course-content {
     font-size: 11px;
     line-height: 1.4;
-    color: #444; 
-    
-    strong, b {
+    color: #444;
+
+    strong,
+    b {
       display: block;
-      font-size: 12px; 
+      font-size: 12px;
       color: #27345c;
       font-weight: 700;
       margin-bottom: 1px;
@@ -46,7 +47,7 @@ const CourseWrapper = styled.div`
 export default function Courses({ data }: { data: any }) {
   if (!data) return null;
   const items = Array.isArray(data) ? data : data?.items;
-  
+
   if (Array.isArray(items)) {
     if (items.length === 0) return null;
     return (
@@ -66,9 +67,8 @@ export default function Courses({ data }: { data: any }) {
     );
   }
 
- 
   if (typeof data === 'string') {
-    if (data.trim() === "" || data === "<p><br></p>") return null;
+    if (data.trim() === '' || data === '<p><br></p>') return null;
     return (
       <CoursesContainer>
         <CourseWrapper>

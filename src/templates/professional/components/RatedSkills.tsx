@@ -5,7 +5,7 @@ const SkillContainer = styled.div`
   display: flex;
   flex-direction: column;
   /* COMPACT: Reduced gap for A4 density */
-  gap: 8px; 
+  gap: 8px;
 `;
 
 const SkillRow = styled.div`
@@ -45,17 +45,17 @@ const ProgressBarBase = styled.div`
 const ProgressFill = styled.div<{ width: number }>`
   height: 100%;
   /* COLOR: Using the teal/cyan from your references */
-  background-color: #00bcd4; 
-  width: ${props => props.width}%;
+  background-color: #00bcd4;
+  width: ${(props) => props.width}%;
   /* STRIPE PATTERN: Recreates the consistent visual style */
   background-image: linear-gradient(
-    45deg, 
-    rgba(255,255,255,.15) 25%, 
-    transparent 25%, 
-    transparent 50%, 
-    rgba(255,255,255,.15) 50%, 
-    rgba(255,255,255,.15) 75%, 
-    transparent 75%, 
+    45deg,
+    rgba(255, 255, 255, 0.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.15) 75%,
+    transparent 75%,
     transparent
   );
   background-size: 10px 10px;

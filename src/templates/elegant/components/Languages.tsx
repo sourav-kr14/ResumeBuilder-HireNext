@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { useThemes } from '@/stores/themes'; 
+import { useThemes } from '@/stores/themes';
 
 const LangGrid = styled.div`
   display: grid;
@@ -11,7 +11,7 @@ const LangGrid = styled.div`
 
 const ProgressBarBase = styled.div`
   width: 100%;
-  height: 8px; 
+  height: 8px;
   background-color: #f1f1f1;
   border-radius: 2px;
   overflow: hidden;
@@ -19,15 +19,23 @@ const ProgressBarBase = styled.div`
 
 const ProgressFill = styled.div<{ width: string; accentColor?: string }>`
   height: 100%;
-  background-color: ${props => props.accentColor || '#00bcd4'}; 
-  width: ${props => props.width};
-  background-image: linear-gradient(45deg, rgba(255,255,255,.2) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.2) 50%, rgba(255,255,255,.2) 75%, transparent 75%, transparent);
+  background-color: ${(props) => props.accentColor || '#00bcd4'};
+  width: ${(props) => props.width};
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    transparent 75%,
+    transparent
+  );
   background-size: 12px 12px;
   transition: all 0.3s ease;
 `;
 
 export default function Languages({ items = [] }: { items: any[] }) {
-
   const activeTheme = useThemes((state) => state.selectedTheme);
 
   if (!Array.isArray(items) || items.length === 0) return null;
@@ -47,14 +55,15 @@ export default function Languages({ items = [] }: { items: any[] }) {
       {items.map((lang, i) => (
         <div key={i}>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '2px' }}>
-            <span style={{ fontSize: '11px', fontWeight: 800, textTransform: 'uppercase' }}>{lang.name}</span>
-            <span style={{ fontSize: '10px', color: '#888', fontStyle: 'italic' }}>{lang.level}</span>
+            <span style={{ fontSize: '11px', fontWeight: 800, textTransform: 'uppercase' }}>
+              {lang.name}
+            </span>
+            <span style={{ fontSize: '10px', color: '#888', fontStyle: 'italic' }}>
+              {lang.level}
+            </span>
           </div>
           <ProgressBarBase>
-            <ProgressFill 
-              width={getWidth(lang.level)} 
-              accentColor={activeTheme.highlighterColor} 
-            />
+            <ProgressFill width={getWidth(lang.level)} accentColor={activeTheme.highlighterColor} />
           </ProgressBarBase>
         </div>
       ))}

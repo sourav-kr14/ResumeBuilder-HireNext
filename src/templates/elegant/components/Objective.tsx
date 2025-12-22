@@ -3,16 +3,15 @@ import styled from '@emotion/styled';
 
 const SummaryWrapper = styled.div`
   margin-top: 2px;
-  
+
   .summary-content {
     font-size: 12.5px;
-    line-height: 1.4; 
-    color: #444; 
-    text-align: justify; 
+    line-height: 1.4;
+    color: #444;
+    text-align: justify;
     letter-spacing: 0.1px;
   }
 
- 
   p {
     margin: 0;
     margin-bottom: 6px;
@@ -24,7 +23,7 @@ const SummaryWrapper = styled.div`
 `;
 
 export const Objective = ({ objective }: { objective: string }) => {
-  if (!objective || objective.trim() === "") return null;
+  if (!objective || objective.trim() === '') return null;
 
   return (
     <SummaryWrapper>

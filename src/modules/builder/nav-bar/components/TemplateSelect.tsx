@@ -41,17 +41,13 @@ import { TemplateSlider } from './TemplatesSlider';
 
 export const TemplateSelect = () => {
   return (
-    <div
-      className="md:w-[480px] bg-white flex flex-col px-4 md:px-8 py-6 shadow-2xl rounded-xl"
-    >
+    <div className="md:w-[480px] bg-white flex flex-col px-4 md:px-8 py-6 shadow-2xl rounded-xl">
       <div className="flex justify-between items-center mb-2">
         <h2 className="text-gray-500 font-semibold text-sm">Choose Template</h2>
       </div>
       <TemplateSlider />
       <div className="mt-4 pt-4 border-t border-gray-100">
-        <span className="text-resume-800 font-bold text-lg block mb-3">
-          View 100K+ IT Jobs
-        </span>
+        <span className="text-resume-800 font-bold text-lg block mb-3">View 100K+ IT Jobs</span>
         <OutlinedButton
           className="w-full"
           onClick={() => {

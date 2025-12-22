@@ -5,8 +5,8 @@ import styled from '@emotion/styled';
 const EduContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 12px; 
-  color: white; 
+  gap: 12px;
+  color: white;
 `;
 
 const EduItem = styled.div`
@@ -14,7 +14,7 @@ const EduItem = styled.div`
   flex-direction: column;
   gap: 2px;
   padding-bottom: 8px;
-  border-bottom: 0.5px solid rgba(255, 255, 255, 0.1); 
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
 
   &:last-child {
     border-bottom: none;
@@ -59,7 +59,8 @@ export const Education = ({ education }: { education: IEducation[] }) => {
             </Degree>
             <Institution>{item.institution}</Institution>
             <DateRange>
-              {dateParser(item.startDate)} — {item.isStudyingHere ? 'Present' : dateParser(item.endDate)}
+              {dateParser(item.startDate)} —{' '}
+              {item.isStudyingHere ? 'Present' : dateParser(item.endDate)}
             </DateRange>
           </EduItem>
         );

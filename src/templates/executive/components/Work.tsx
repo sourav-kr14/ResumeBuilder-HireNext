@@ -6,7 +6,7 @@ import styled from '@emotion/styled';
 const WorkContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 16px; 
+  gap: 16px;
 `;
 
 const Position = styled.h3`
@@ -20,7 +20,7 @@ const Position = styled.h3`
 const CompanyName = styled.div`
   font-size: 13px;
   font-weight: 800;
-  color: #27345c; 
+  color: #27345c;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-top: 1px;
@@ -39,7 +39,7 @@ const MetaRow = styled.div`
 
 const SummaryWrapper = styled.div`
   font-size: 12.5px;
-  line-height: 1.4; 
+  line-height: 1.4;
   color: #444;
 
   ul {
@@ -49,8 +49,8 @@ const SummaryWrapper = styled.div`
   }
 
   li {
-    margin-bottom: 4px; 
-    
+    margin-bottom: 4px;
+
     &:last-child {
       margin-bottom: 0;
     }
@@ -71,14 +71,13 @@ export default function Work({ work = [] }: { work: IExperienceItem[] }) {
           {/* Header Section */}
           <Position>{company.position}</Position>
           <CompanyName>{company.name}</CompanyName>
-          
+
           <MetaRow>
             <span>
-              {dateParser(company.startDate)} — {company.isWorkingHere ? 'Present' : dateParser(company.endDate)}
+              {dateParser(company.startDate)} —{' '}
+              {company.isWorkingHere ? 'Present' : dateParser(company.endDate)}
             </span>
-            {company.location && (
-              <span>• {company.location}</span>
-            )}
+            {company.location && <span>• {company.location}</span>}
           </MetaRow>
           <SummaryWrapper>
             <HTMLRenderer htmlString={company.summary} />

@@ -31,7 +31,7 @@ const BuilderLayout = () => {
             rel="noreferrer"
             className="fixed w-15 h-14 rounded-full bottom-15 left-10 flex justify-center items-center bg-resume-50 shadow-level-4dp"
           >
-            <Image src="/icons/rate-review.svg" alt="Feedback button" width="24" height="24" /> 
+            <Image src="/icons/rate-review.svg" alt="Feedback button" width="24" height="24" />
           </a>
         </Tooltip>
       </footer>

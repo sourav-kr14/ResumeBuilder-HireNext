@@ -2,8 +2,8 @@ import { HTMLRenderer } from '@/helpers/common/components/HTMLRenderer';
 import styled from '@emotion/styled';
 
 const SummaryContainer = styled.div`
-  font-size: 11.5px; 
-  line-height: 1.4; 
+  font-size: 11.5px;
+  line-height: 1.4;
   color: #4b5563;
   text-align: justify;
   margin-bottom: 10px;

@@ -34,12 +34,12 @@ export const OutlinedButton = ({
   onClick,
   children,
   disabled = false,
-  className, 
+  className,
 }: {
   onClick: () => void;
   children: React.ReactNode | string;
   disabled?: boolean;
-  className?: string; 
+  className?: string;
 }) => (
   <Button
     variant="outlined"

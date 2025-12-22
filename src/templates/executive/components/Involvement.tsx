@@ -17,8 +17,8 @@ const InvolvementEntry = styled.div`
   display: flex;
   flex-direction: column;
   padding-bottom: 10px;
-  margin-bottom: 10px; 
-  border-bottom: 1px dotted #ccc; 
+  margin-bottom: 10px;
+  border-bottom: 1px dotted #ccc;
 
   &:last-child {
     border-bottom: none;
@@ -33,7 +33,7 @@ const Title = styled.h4`
   color: #1a1a1a;
   margin: 0;
   line-height: 1.2;
-  text-transform: uppercase; 
+  text-transform: uppercase;
   letter-spacing: 0.5px;
 `;
 

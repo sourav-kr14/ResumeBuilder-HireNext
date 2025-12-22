@@ -8,7 +8,6 @@ import Achievements from './components/Achievements';
 import BasicIntro from './components/BasicIntro';
 import { Education } from './components/Education';
 import Involvement from './components/Involvement';
-import { Objective } from './components/Objective';
 import RatedSkills from './components/RatedSkills';
 import { Section } from './components/Section';
 import UnratedSkills from './components/UnratedSkills';
@@ -57,23 +56,38 @@ export default function ProfessionalTemplate() {
   const { basics, work, education, skills, activities } = resumeData;
 
   /* --- DATA NORMALIZATION LOGIC --- */
-  const techKeywords = ['react', 'sql', 'javascript', 'typescript', 'python', 'java', 'html', 'css', 'node', 'angular', 'git', 'docker', 'aws', 'php', 'mongodb', 'c++', 'ruby', 'c#'];
+  const techKeywords = [
+    'react',
+    'sql',
+    'javascript',
+    'typescript',
+    'python',
+    'java',
+    'html',
+    'css',
+    'node',
+    'angular',
+    'git',
+    'docker',
+    'aws',
+    'php',
+    'mongodb',
+    'c++',
+    'ruby',
+    'c#',
+  ];
 
-  // Filter tech skills out of the languages array
-  const techFromLanguages = (skills.languages || []).filter((s: any) => 
+  const techFromLanguages = (skills.languages || []).filter((s: any) =>
     techKeywords.includes((s.name || '').toLowerCase())
   );
 
-  // Spoken languages only (Non-tech)
-  const spokenLanguages = (skills.languages || []).filter((s: any) => 
-    !techKeywords.includes((s.name || '').toLowerCase())
-  );
+  // Spoken languages only
+  // const spokenLanguages = (skills.languages || []).filter(
+  //   (s: any) => !techKeywords.includes((s.name || '').toLowerCase())
+  // );
 
   // Combined technical expertise
-  const technicalExpertise = [
-    ...techFromLanguages,
-    ...(skills.frameworks || [])
-  ];
+  const technicalExpertise = [...techFromLanguages, ...(skills.frameworks || [])];
 
   return (
     <ResumeContainer>
@@ -108,36 +122,45 @@ export default function ProfessionalTemplate() {
           </Section>
         </SectionValidator>
 
-        {/* Technical Expertise (Includes code languages from data) */}
         <SectionValidator value={technicalExpertise}>
           <Section title="Technical Expertise">
             <RatedSkills items={technicalExpertise} />
           </Section>
         </SectionValidator>
 
-        {/* Spoken Languages (Cleaned list) */}
-        <SectionValidator value={spokenLanguages}>
+        {/* <SectionValidator value={spokenLanguages}>
           <Section title="Languages">
             <RatedSkills items={spokenLanguages} />
           </Section>
-        </SectionValidator>
+        </SectionValidator> */}
 
-        <SectionValidator value={skills.technologies.concat(skills.libraries, skills.databases)}>
-          <Section title="Skills / Exposure">
-            <UnratedSkills items={skills.technologies.concat(skills.libraries, skills.databases)} />
+        <SectionValidator value={skills.frameworks.concat(skills.libraries)}>
+          <Section title="Frameworks & Libraries">
+            <UnratedSkills items={skills.frameworks.concat(skills.libraries)} />
           </Section>
         </SectionValidator>
-         <SectionValidator value={skills.technologies.concat(skills.libraries, skills.practices)}>
+        <SectionValidator value={skills.databases}>
+          <Section title="Databases">
+            <UnratedSkills items={skills.databases} />
+          </Section>
+        </SectionValidator>
+
+        <SectionValidator value={skills.practices}>
           <Section title="Methodology / Approach">
-            <UnratedSkills items={skills.technologies.concat(skills.libraries, skills.practices)} />
+            <UnratedSkills items={skills.practices} />
           </Section>
         </SectionValidator>
-         <SectionValidator value={skills.technologies.concat(skills.libraries, skills.tools)}>
-          <Section title="Tools">
-            <UnratedSkills items={skills.technologies.concat(skills.libraries, skills.tools)} />
+        <SectionValidator value={skills.technologies}>
+          <Section title="Technologies">
+            <UnratedSkills items={skills.technologies} />
           </Section>
         </SectionValidator>
 
+        <SectionValidator value={skills.tools}>
+          <Section title="Tools">
+            <UnratedSkills items={skills.tools} />
+          </Section>
+        </SectionValidator>
         <SectionValidator value={education}>
           <Section title="Education">
             <Education education={education} />

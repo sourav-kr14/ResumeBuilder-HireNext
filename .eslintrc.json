@@ -9,5 +9,9 @@
     "plugin:import/typescript",
     "prettier",
     "next"
-  ]
+  ],
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "off"
+    
+  }
 }

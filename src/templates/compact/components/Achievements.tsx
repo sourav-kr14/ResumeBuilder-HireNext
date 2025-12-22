@@ -12,13 +12,12 @@ const AchievementItem = styled.div`
   align-items: flex-start;
 
   .achievement-content {
-   
     font-size: 11px;
     line-height: 1.4;
     color: #444;
 
-    strong, b {
-      
+    strong,
+    b {
       font-size: 12px;
       color: #27345c;
       font-weight: 700;
@@ -31,13 +30,13 @@ const AchievementItem = styled.div`
     }
 
     li {
-      margin-bottom: 6px; 
-      
+      margin-bottom: 6px;
+
       &:last-child {
         margin-bottom: 0;
       }
     }
-    
+
     p {
       margin: 0;
     }
@@ -45,7 +44,7 @@ const AchievementItem = styled.div`
 `;
 
 export default function Achievements({ data }: { data: string }) {
-  if (!data || data.trim() === "" || data === "<p><br></p>") return null;
+  if (!data || data.trim() === '' || data === '<p><br></p>') return null;
 
   return (
     <AchievementContainer>
