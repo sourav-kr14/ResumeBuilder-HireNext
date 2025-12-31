@@ -3,23 +3,24 @@ import styled from '@emotion/styled';
 import { HTMLRenderer } from '@/helpers/common/components/HTMLRenderer';
 
 const AchievementsContainer = styled.div`
-  margin-top: 2px;
+  margin-top: 0;
 `;
 
 const AchievementsWrapper = styled.div`
-  font-size: 10.5px;
-  line-height: 1.5;
-  color: inherit; 
+  font-size: 10.3px;
+  line-height: 1.25;
+  color: inherit;
 
   ul {
     list-style-type: disc !important;
-    padding-left: 16px !important;
-    margin: 4px 0 0 0 !important;
+    padding-left: 14px !important;
+    margin: 2px 0 0 0 !important;
     color: inherit;
   }
 
   li {
-    margin-bottom: 4px;
+    margin-bottom: 2px;
+
     &::marker {
       color: inherit;
     }

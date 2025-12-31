@@ -193,11 +193,69 @@ export const AVAILABLE_TEMPLATES: ITemplate = {
     thumbnail: '/templates/navy.png',
     component: dynamic(() => import('@/templates/navy/NavyTemplate')),
   },
-   minimal: {
+  minimal: {
     id: 'minimal',
     name: 'Minimal Resume',
     thumbnail: '/templates/minimal.png',
     component: dynamic(() => import('@/templates/minimal/MinimalTemplate')),
+  },
+  atlas: {
+    id: 'atlas',
+    name: 'Atlas Resume',
+    thumbnail: '/templates/atlas.png',
+    component: dynamic(() => import('@/templates/atlas/AtlasTemplate'), { ssr: false }),
+  },
+  santiago: {
+    id: 'santiago',
+    name: 'Santiago Resume',
+    thumbnail: '/templates/santiago.png',
+    component: dynamic(() => import('@/templates/santiago/santiagoTemplate'), {
+      ssr: false,
+    }),
+  },
+  prime: {
+    id: 'prime',
+    name: 'Prime Resume',
+    thumbnail: '/templates/prime.png',
+    component: dynamic(() => import('@/templates/prime/PrimeTemplate'), {
+      ssr: false,
+    }),
+  },
+  berlin: {
+    id: 'berlin',
+    name: 'Berlin Resume',
+    thumbnail: '/templates/berlin.png',
+    component: dynamic(() => import('@/templates/berlin/BerlinTemplate'), {
+      ssr: false,
+    }),
+  },
+  traditional: {
+    id: 'traditional',
+    name: 'Traditional Resume',
+    thumbnail: '/templates/traditional.png',
+    component: dynamic(() => import('@/templates/traditional/TraditionalTemplate'), { ssr: false }),
+  },
+  athens: {
+    id: 'athens',
+    name: 'Athens Resume',
+    thumbnail: '/templates/athens.png',
+    component: dynamic(() => import('@/templates/athens/AthensTemplate'), {
+      ssr: false,
+    }),
+  },
+  cambridge: {
+    id: 'cambridge',
+    name: 'Cambridge Resume',
+    thumbnail: '/templates/cambridge.png',
+    component: dynamic(() => import('@/templates/cambridge/CambridgeTemplate'), { ssr: false }),
+  },
+  nova: {
+    id: 'nova',
+    name: 'Nova Resume',
+    thumbnail: '/templates/nova.png',
+    component: dynamic(() => import('@/templates/nova/NovaTemplate'), {
+      ssr: false,
+    }),
   },
 };
 

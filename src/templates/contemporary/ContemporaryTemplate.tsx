@@ -149,11 +149,7 @@ export default function ContemporaryTemplate() {
 
         <Section title="CONTACTS" icon="✉️" titleColor={activeTheme.titleColor}>
           <ContactList accentColor={activeTheme.titleColor}>
-           {basics.email && (
-          <a href={`mailto:${basics.email}`}>
-            ✉️ {basics.email}
-          </a>
-        )}
+            {basics.email && <a href={`mailto:${basics.email}`}>✉️ {basics.email}</a>}
             {basics.url && (
               <div className="contact-item">
                 <span>🔗</span> {basics.url.replace('https://', '')}

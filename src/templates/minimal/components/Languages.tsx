@@ -24,7 +24,7 @@ const LabelRow = styled.div`
 const Name = styled.div`
   font-weight: 700;
   font-size: 11.5px;
-  color: inherit; 
+  color: inherit;
 `;
 
 const Level = styled.div`
@@ -45,14 +45,14 @@ const ProgressBar = styled.div`
 const ProgressFill = styled.div<{ width: string; accentColor: string }>`
   height: 100%;
   width: ${(props) => props.width};
-  background-color: ${(props) => props.accentColor}; 
+  background-color: ${(props) => props.accentColor};
   transition: width 0.5s ease-in-out;
 `;
 
 export default function Languages({ items = [] }: { items: any[] }) {
   const activeTheme = useThemes((state) => state.selectedTheme);
   const validItems = Array.isArray(items) ? items : [];
-  
+
   if (validItems.length === 0) return null;
 
   const getWidth = (level: any) => {
@@ -83,10 +83,7 @@ export default function Languages({ items = [] }: { items: any[] }) {
             </LabelRow>
 
             <ProgressBar>
-              <ProgressFill 
-                width={getWidth(rawLevel)} 
-                accentColor={activeTheme.highlighterColor} 
-              />
+              <ProgressFill width={getWidth(rawLevel)} accentColor={activeTheme.highlighterColor} />
             </ProgressBar>
           </LangItem>
         );

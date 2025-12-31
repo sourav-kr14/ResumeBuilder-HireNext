@@ -101,7 +101,6 @@
 //   );
 // }
 
-
 import { IBasics } from '@/stores/index.interface';
 import styled from '@emotion/styled';
 import { useThemes } from '@/stores/themes';
@@ -178,11 +177,7 @@ export default function BasicIntro({ basics }: { basics: IBasics }) {
       </Headline>
 
       <ContactRow>
-       {basics.email && (
-          <a href={`mailto:${basics.email}`}>
-            ✉️ {basics.email}
-          </a>
-        )}
+        {basics.email && <a href={`mailto:${basics.email}`}>✉️ {basics.email}</a>}
 
         {linkedinProfile?.url && (
           <a href={linkedinProfile.url} target="_blank" rel="noreferrer">
@@ -192,8 +187,7 @@ export default function BasicIntro({ basics }: { basics: IBasics }) {
 
         {basics.location?.city && (
           <span>
-            <span style={{ opacity: 0.6 }}>📍</span>{' '}
-            {basics.location.city} {basics.location.region}
+            <span style={{ opacity: 0.6 }}>📍</span> {basics.location.city} {basics.location.region}
           </span>
         )}
 

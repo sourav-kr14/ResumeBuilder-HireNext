@@ -10,7 +10,7 @@ const SummaryText = styled.div`
   line-height: 1.5;
   /* color: inherit ensures it uses the fontColor from ResumeContainer */
   /* and doesn't turn green/pink like the headings */
-  color: inherit; 
+  color: inherit;
   text-align: justify;
 
   p {
@@ -23,7 +23,8 @@ const SummaryText = styled.div`
   }
 
   /* Resetting potential nested list colors to ensure bullets stay neutral */
-  ul, ol {
+  ul,
+  ol {
     color: inherit;
     margin-left: 18px;
   }

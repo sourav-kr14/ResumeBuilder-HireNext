@@ -7,16 +7,15 @@ const ObjectiveContainer = styled.div`
 `;
 
 const ObjectiveText = styled.div`
-  font-size: 11px; 
+  font-size: 11px;
   line-height: 1.5;
-  color: inherit; 
+  color: inherit;
   text-align: justify;
 
   p {
     margin: 0;
   }
 `;
-
 
 export const Objective = ({ objective }: { objective: string }) => {
   if (!objective || objective.trim() === '' || objective === '<p></p>') {

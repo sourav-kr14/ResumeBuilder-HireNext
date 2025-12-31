@@ -12,7 +12,7 @@ const SkillsWrapper = styled.div`
 const SkillText = styled.span<{ accentColor: string }>`
   font-size: 11px;
   font-weight: 700;
-  color: inherit; 
+  color: inherit;
   border-bottom: 1px solid ${(props) => props.accentColor};
   padding-bottom: 1px;
   line-height: 1.2;

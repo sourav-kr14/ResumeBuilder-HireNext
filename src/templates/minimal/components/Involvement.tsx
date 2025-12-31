@@ -25,7 +25,7 @@ const InvolvementEntry = styled.div`
 const Title = styled.h4`
   font-weight: 700;
   font-size: 11.5px;
-  color: inherit; 
+  color: inherit;
   margin: 0;
   line-height: 1.2;
   text-transform: uppercase;
@@ -34,7 +34,7 @@ const Title = styled.h4`
 
 const SummaryWrapper = styled.div`
   font-size: 10.5px;
-  color: inherit; 
+  color: inherit;
   margin-top: 3px;
   line-height: 1.4;
 
@@ -42,7 +42,8 @@ const SummaryWrapper = styled.div`
     margin: 0;
   }
 
-  ul, ol {
+  ul,
+  ol {
     margin-left: 16px;
     margin-top: 4px;
     color: inherit;

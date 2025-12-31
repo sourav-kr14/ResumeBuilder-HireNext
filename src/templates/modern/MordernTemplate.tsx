@@ -19,7 +19,6 @@ export default function MordernTemplate() {
 
   const { basics, work, education, skills, awards, volunteer } = resumeData;
 
-  // --- LOGIC: Filter Tech vs Spoken Languages ---
   const techKeywords = [
     'react',
     'sql',

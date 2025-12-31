@@ -10,7 +10,7 @@ const CoursesContainer = styled.div`
 const CourseEntry = styled.div`
   display: flex;
   flex-direction: column;
-  
+
   &:last-child {
     margin-bottom: 0;
   }
@@ -20,7 +20,7 @@ const CourseTitle = styled.div`
   font-weight: 700;
   font-size: 11.5px;
   /* We keep this dark/neutral so it doesn't fight with the Section Title color */
-  color: inherit; 
+  color: inherit;
   line-height: 1.2;
 `;
 
@@ -43,7 +43,8 @@ const SummaryWrapper = styled.div`
     margin: 0;
   }
 
-  ul, ol {
+  ul,
+  ol {
     margin-left: 16px;
     margin-top: 4px;
     color: inherit;
